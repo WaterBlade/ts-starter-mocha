@@ -6,7 +6,13 @@
   "scripts": {
     "test": "mocha",
     "watch": "mocha --watch --reporter min",
-    "coverage": "nyc mocha"
+    "coverage": "nyc mocha",
+    "format": "prettier \"src/**/*.ts\" --write",
+    "lint": "eslint ./src --ext .ts,tsx",
+    "check": "run-s format lint",
+    "clean": "trash dist",
+    "compile": "tsc",
+    "build": "run-s clean compile"
   },
   "devDependencies": {
     "@types/chai": "^4.2.8",
